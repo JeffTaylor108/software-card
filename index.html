@@ -20,9 +20,54 @@
 </head>
 
 <body>
+  <div class="buttons">
+    <button class="cloneButton">Clone Page </button>
+    <button class="backgroundButton"> Toggle Card Background Color</button>
+    <button class="headingButton"> Change Heading Text</button>
+    <button class="deleteLastButton"> Delete Last Clone</button>
+  </div>
   <software-card></software-card>
 
   <script type="module" src="./src/software-card.js"></script>
+  <script>
+  var clone;
+var elem;
+const btn = document.querySelector('.cloneButton');
+btn.addEventListener('click', function(e) {
+  document.querySelector('software-card').classList.add();
+  elem = document.querySelector('software-card');
+clone = elem.cloneNode(true);
+clone.id = 'elem2';
+elem.after(clone);
+});
+
+const backgroundButton = document.querySelector('.backgroundButton');
+console.log(backgroundButton);
+backgroundButton.addEventListener('click', function(e) {
+  document.querySelector('software-card').classList.toggle("noBackground");
+});
+
+const headingTextButton = document.querySelector('.headingButton');
+console.log(headingTextButton);
+headingTextButton.addEventListener('click', function(e) {
+  document.querySelector('.heading').innerText = "something else";
+});
+
+const detailsButton = document.querySelector('.detailsButton');
+console.log(detailsButton);
+detailsButton.addEventListener('click', function(e) {
+  document.querySelector('.paragraph').classList.toggle("paragraphHide");
+});
+
+
+document.querySelector('.deleteLastButton').addEventListener('click', function(e) {
+  const cards = document.querySelectorAll("software-card");
+  if (cards.length != 1) { 
+    const lastCard = cards[cards.length - 1];
+    lastCard.remove();
+  }
+});
+</script>
 </body>
 
 </html>
