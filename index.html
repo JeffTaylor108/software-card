@@ -10,10 +10,13 @@
   <style>
     html,
     body {
-      margin: 0;
-      padding: 0;
+      margin: 10;
+      padding: 10;
       font-family: sans-serif;
-      background-color: #ededed;
+      background-color: #eae7e7;
+    }
+    software-card img {
+      max-width: 200px;
     }
   </style>
   <title>software-card</title>
@@ -21,53 +24,52 @@
 
 <body>
   <div class="buttons">
-    <button class="cloneButton">Clone Page </button>
-    <button class="backgroundButton"> Toggle Card Background Color</button>
-    <button class="headingButton"> Change Heading Text</button>
-    <button class="deleteLastButton"> Delete Last Clone</button>
+    <button class="duplicate">Duplicate last card</button>
+    <button class="modifytitle">Change Name</button>
+    <button id="deletelastcard">Delete</button>
+    <button id="changeBackground">Change background color</button>
   </div>
-  <software-card></software-card>
-
+  <div id="app">
+    <software-card>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </software-card>
+  </div>
   <script type="module" src="./src/software-card.js"></script>
-  <script>
-  var clone;
-var elem;
-const btn = document.querySelector('.cloneButton');
-btn.addEventListener('click', function(e) {
-  document.querySelector('software-card').classList.add();
-  elem = document.querySelector('software-card');
-clone = elem.cloneNode(true);
-clone.id = 'elem2';
-elem.after(clone);
+  <script>    
+
+document.querySelector('#changeBackground').addEventListener('click', (e) => {
+  document.body.style.backgroundColor = "#A5D8DD";
+  
 });
 
-const backgroundButton = document.querySelector('.backgroundButton');
-console.log(backgroundButton);
-backgroundButton.addEventListener('click', function(e) {
-  document.querySelector('software-card').classList.toggle("noBackground");
-});
-
-const headingTextButton = document.querySelector('.headingButton');
-console.log(headingTextButton);
-headingTextButton.addEventListener('click', function(e) {
-  document.querySelector('.heading').innerText = "something else";
-});
-
-const detailsButton = document.querySelector('.detailsButton');
-console.log(detailsButton);
-detailsButton.addEventListener('click', function(e) {
-  document.querySelector('.paragraph').classList.toggle("paragraphHide");
+document.querySelector('.duplicate').addEventListener('click', function(e) {
+  const itemToClone = document.querySelector('software-card').cloneNode();
+  document.querySelector('#app').appendChild(itemToClone);
 });
 
 
-document.querySelector('.deleteLastButton').addEventListener('click', function(e) {
-  const cards = document.querySelectorAll("software-card");
-  if (cards.length != 1) { 
-    const lastCard = cards[cards.length - 1];
-    lastCard.remove();
+document.querySelector('.modifytitle').addEventListener('click', function(e) {
+  let name = prompt("Enter new name: ");
+  if (name) {
+    document.querySelector('software-card').name = name;
   }
 });
-</script>
+
+
+document.querySelector('#deletelastcard').addEventListener('click', function(e) {
+    if (document.querySelector('#app :last-child') !== document.querySelector('software-card')) {
+      document.querySelector('#app :last-child').remove();      
+    }
+    else {
+      alert("You cannot delete the last card");
+    }
+});
+  </script>
 </body>
 
 </html>
