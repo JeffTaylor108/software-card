@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import "@lrnwebcomponents/meme-maker/meme-maker.js";
 
-const logo = new URL('https://media.idownloadblog.com/wp-content/uploads/2018/07/Apple-logo-black-and-white.png', import.meta.url).href;
+const logo = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1667px-Apple_logo_black.svg.png";
 
 export class SoftwareCard extends LitElement {
   static get properties() {
