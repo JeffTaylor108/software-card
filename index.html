@@ -43,8 +43,8 @@
   <script>    
 
 document.querySelector('#changeBackground').addEventListener('click', (e) => {
-  document.body.style.backgroundColor = "#A5D8DD";
-  
+  console.log('#changeBackground')
+  document.querySelector('software-card').classList.toggle('newBackground')
 });
 
 document.querySelector('.duplicate').addEventListener('click', function(e) {

@@ -19,17 +19,25 @@ export class SoftwareCard extends LitElement {
   static get styles() {
     return css`
       .wrapper {
+        border-style: solid;
+        border-color: #355C7D;
+        background-color: #A5D8DD;
+        padding: 8px;
+        border-width: 2px;
+        border-radius: 15px;
         width: 400px;
+        margin: 8px;
         border: 2px solid black;
         display: inline-flex;
+        align-items: center;
       }
 
 .image {
-  width: 400px;
+  width: 100px;
 }
 
 .newBackground {
-  background-color: #A5D8DD;
+  background-color: #90EE90;
 }
 
 .header {
@@ -116,14 +124,14 @@ details {
     return html`
     <div class="wrapper">
       <div class="container">
+        <div class="header">
+          <h3>${this.name}</h3>
+        </div> 
         <meme-maker
           image-url="${logo}"
           top-text="${this.top}">
           bottom-text="${this.bottom}">
         </meme-maker>
-        <div class="header">
-          <h3>${this.name}</h3>
-        </div>
         <details class="details">
           <summary>${this.softwareDetails}</summary>
           <div>
@@ -133,6 +141,7 @@ details {
       </div>
     </div>`;
   }
+  
 }
 
 customElements.define('software-card', SoftwareCard);
