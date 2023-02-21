@@ -21,7 +21,7 @@ export class SoftwareCard extends LitElement {
       .wrapper {
         border-style: solid;
         border-color: #355C7D;
-        background-color: #A5D8DD;
+        background-color: var(--bg-color);
         padding: 8px;
         border-width: 2px;
         border-radius: 15px;
@@ -32,18 +32,27 @@ export class SoftwareCard extends LitElement {
         align-items: center;
       }
 
+  :root,
+    :root.blue {
+    --bg-color: #A5D8DD;
+    }
+    :root.green {
+    --bg-color: #90EE90;
+    }
+
 .image {
   width: 100px;
-}
-
-.newBackground {
-  background-color: #90EE90;
 }
 
 .header {
   text-align: center;
   font-weight: bold;
   font-size: 2rem;
+}
+
+.subheader {
+  text-align: center;
+  font-size: 12;
 }
 
 .header h3:hover {
@@ -115,6 +124,7 @@ details {
   constructor() {
     super();
     this.name = "Apple";
+    this.subheader = "a company";
     this.softwareDetails = "Details";
     this.top = "Apple";
     this.bottom = "Apple"
@@ -127,6 +137,9 @@ details {
         <div class="header">
           <h3>${this.name}</h3>
         </div> 
+        <div class="subheader">
+          <h4>${this.subheader}</h4>
+        </div>
         <meme-maker
           image-url="${logo}"
           top-text="${this.top}">
