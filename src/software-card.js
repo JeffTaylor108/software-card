@@ -21,7 +21,7 @@ export class SoftwareCard extends LitElement {
       .wrapper {
         border-style: solid;
         border-color: #355C7D;
-        background-color: var(--bg-color);
+        background-color: #A5D8DD;
         padding: 8px;
         border-width: 2px;
         border-radius: 15px;
@@ -32,16 +32,12 @@ export class SoftwareCard extends LitElement {
         align-items: center;
       }
 
-  :root,
-    :root.blue {
-    --bg-color: #A5D8DD;
-    }
-    :root.green {
-    --bg-color: #90EE90;
-    }
-
 .image {
   width: 100px;
+}
+
+.newBackground {
+  background-color: #90EE90;
 }
 
 .header {
