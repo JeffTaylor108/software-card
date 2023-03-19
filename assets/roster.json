@@ -1,0 +1,17 @@
+[
+    {
+    "name": "Apple",
+    "subheader": "a company",
+    "softwareDetails": "Details",
+    "top": "Apple",
+    "bottom": "Apple"
+    },
+
+    {
+        "name": "Definitely not Apple",
+        "subheader": "not a company",
+        "softwareDetails": "Details",
+        "top": "Apple",
+        "bottom": "Apple"
+        }
+]
